@@ -1,0 +1,25 @@
+@import "./variables";
+
+.nav-wrapper {
+  background-color: $White;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+
+  .nav-links {
+    display: none;
+  }
+  button {
+    display: none;
+  }
+
+  .hamburger {
+    img:nth-child(2) {
+      display: none;
+    }
+  }
+}
