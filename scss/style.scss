@@ -1,4 +1,5 @@
 @import "./partials/partials";
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,11 +15,24 @@ html {
 
 body {
   font-size: $font-size-semi-medium;
+  font-family: $font-family;
+  line-height: 28px;
+  letter-spacing: -0.234375px;
+  color: $Dark-grey;
+  background-color: f2f2f2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $Dark-Blue;
 }
 
 h1 {
   font-size: $font-size-large;
   line-height: 47px;
+  font-weight: 300;
 }
 
 ul {
@@ -38,6 +52,8 @@ img {
 @media screen and (min-width: 768px) {
   body {
     font-size: $font-size-small;
+    line-height: 25px;
+    letter-spacing: -0.28125px;
   }
 
   h1 {

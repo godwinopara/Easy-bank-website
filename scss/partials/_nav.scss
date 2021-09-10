@@ -2,6 +2,8 @@
 
 .nav-wrapper {
   background-color: $White;
+  z-index: 100;
+  position: relative;
 }
 
 nav {
@@ -18,6 +20,7 @@ nav {
   }
 
   .hamburger {
+    cursor: pointer;
     img:nth-child(2) {
       display: none;
     }
