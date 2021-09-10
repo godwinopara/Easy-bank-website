@@ -1,0 +1,68 @@
+@import "./variables";
+
+footer {
+  min-height: 19.1rem;
+  background: $Dark-Blue;
+  color: $White;
+  text-align: center;
+  padding: 4rem 0;
+
+  .social-media-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+
+    li + li {
+      margin-left: 1.6rem;
+    }
+  }
+
+  .footer-links {
+    margin-bottom: 3rem;
+
+    li + li {
+      margin-top: 1rem;
+    }
+  }
+
+  .copy-right {
+    button {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    text-align: left;
+
+    li:hover {
+      color: $Lime-Green;
+    }
+
+    .footer-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .social-media-icons {
+      margin-bottom: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0;
+
+      .right-side-footer-link {
+        margin-left: 5rem;
+      }
+    }
+
+    .copy-right {
+      text-align: right;
+    }
+  }
+}

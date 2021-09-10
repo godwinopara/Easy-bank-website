@@ -19,7 +19,7 @@ body {
   line-height: 28px;
   letter-spacing: -0.234375px;
   color: $Dark-grey;
-  background-color: f2f2f2;
+  background: $Very-Light-Gray;
 }
 
 h1,
@@ -27,6 +27,7 @@ h2,
 h3,
 h4 {
   color: $Dark-Blue;
+  font-weight: 300;
 }
 
 h1 {

@@ -14,6 +14,10 @@ nav {
 
   .nav-links {
     display: none;
+
+    li {
+      cursor: pointer;
+    }
   }
   button {
     display: none;
@@ -22,6 +26,27 @@ nav {
   .hamburger {
     cursor: pointer;
     img:nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  nav {
+    .nav-links {
+      display: flex;
+      justify-content: center;
+
+      li + li {
+        margin-left: 2rem;
+      }
+    }
+
+    button {
+      display: block;
+    }
+
+    .hamburger {
       display: none;
     }
   }
