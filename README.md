@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Live Demo](https://easy-digital-bank.netlify.app/)
+- [Live Demo](https://easy-digital-bank.netlify.app/)
 
 ## My process
 
