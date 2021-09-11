@@ -45,7 +45,7 @@ $White: hsl(0, 0%, 100%);
   letter-spacing: -0.57px;
 }
 
-@mixin font-medium($font-size: $font-size-medium) {
+@mixin font-medium($font-size-medium) {
   font-size: $font-size-medium;
   line-height: 28px;
   letter-spacing: -0.36px;
@@ -55,4 +55,17 @@ $White: hsl(0, 0%, 100%);
   font-size: $font-size-semi-medium;
   letter-spacing: -0.29px;
   line-height: 20px;
+}
+
+// breakpoint media query
+
+$breakpoints-up: (
+  medium: "1024px",
+  large: "1400px",
+);
+
+@mixin breakpoint-up($size) {
+  @media screen and (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
 }

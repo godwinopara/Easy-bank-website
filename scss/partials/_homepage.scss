@@ -1,73 +1,94 @@
-@import "./variables";
-
 // HEADER
 
 header {
-  position: relative;
+  // position: relative;
 
-  .hero-image {
-    position: relative;
+  .header-hero {
+    min-height: 69rem;
 
-    img {
-      display: block;
-      width: 100%;
-    }
-  }
-
-  .hero-image::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    top: -25%;
-    background: url("../../images/image-mockups.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .content {
-    padding-bottom: 5rem;
-    text-align: center;
-
-    h1 {
-      margin-bottom: 1.6rem;
-      @include font-large;
-    }
-
-    p {
-      margin-bottom: 3.2rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  header {
-    min-height: 80vh;
-
-    .header-hero {
+    @include breakpoint-up(medium) {
+      min-height: 65.6rem;
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
-      width: 90%;
-      margin: auto;
-      max-width: 1100px;
-      height: 100%;
+    }
+  }
 
-      .hero-image {
-        img {
-          width: 1500px;
-        }
+  .hero-image {
+    position: relative;
+    height: 32rem;
+    background: url("../../images/bg-intro-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -45%;
+      left: 0;
+      background: url("../../images/image-mockups.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 160%;
+      width: 100%;
+    }
+
+    @include breakpoint-up(medium) {
+      background-image: none;
+      height: 65.6rem;
+      flex: 3;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -15%;
+        background: url("../../images/bg-intro-desktop.svg");
+        background-size: 130%;
+        background-repeat: no-repeat;
+        background-position: 8% 70%;
+        height: 120%;
+        width: 130%;
+      }
+
+      &::after {
+        left: 20%;
+        top: -27%;
+        background-size: 105%;
+        width: 110%;
+      }
+    }
+  }
+
+  .header-description {
+    margin-top: 3.1rem;
+
+    .content {
+      padding-bottom: 5rem;
+      text-align: center;
+
+      h1 {
+        @include font-large;
+      }
+
+      p {
+        margin: 2.4rem auto 3.2rem;
       }
     }
 
-    .content {
-      text-align: left;
+    @include breakpoint-up(medium) {
+      flex: 2;
 
-      h1 {
-        @include font-very-large;
+      .content {
+        text-align: left;
+
+        h1 {
+          @include font-very-large;
+        }
+
+        p {
+          @include font-medium($font-size-medium);
+        }
       }
     }
   }
@@ -92,6 +113,26 @@ header {
       @include font-normal;
       margin-bottom: 1.6rem;
     }
+
+    // media query breakpoint 1024px upward style for
+    // the  WHY CHOOSE US HEADING
+
+    @include breakpoint-up(medium) {
+      text-align: left;
+      margin-left: 0;
+
+      h2 {
+        @include font-large;
+      }
+
+      p {
+        max-width: 70%;
+        margin: auto 0;
+        @include font-medium($font-size-medium);
+      }
+    }
+
+    //
   }
 
   .reasons-to-choose-us {
@@ -106,28 +147,11 @@ header {
     .reasons-to-choose-us-card {
       margin-bottom: 3.2rem;
     }
-  }
-}
 
-// CHOOSE US MEDIA QUERY
+    // media query breakpoint 1024px for the
+    // REASON TO CHOOSE US SECTION
 
-@media screen and (min-width: 1024px) {
-  .choose-us {
-    .why-choose-us-heading {
-      text-align: left;
-      margin-left: 0;
-
-      h2 {
-        @include font-large;
-      }
-
-      p {
-        max-width: 70%;
-        margin: auto 0;
-      }
-    }
-
-    .reasons-to-choose-us {
+    @include breakpoint-up(medium) {
       width: 100%;
       text-align: left;
       display: flex;
@@ -155,13 +179,25 @@ header {
     @include font-normal;
   }
 
+  .articles-details {
+    @include breakpoint-up(medium) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+    }
+  }
+
   .articles-card {
     margin-bottom: 2.4rem;
     background: $White;
     border-radius: 0 0 5px 5px;
 
+    @include breakpoint-up(medium) {
+      margin-bottom: 0;
+    }
+
     .card-details {
-      padding: 2rem;
+      padding: 2.4rem;
 
       .autor {
         font-size: $font-size-very-small;
@@ -223,20 +259,17 @@ header {
       @include font-large;
       text-align: left;
     }
-    .articles-details {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 3rem;
-    }
   }
 }
 
 @media screen and (min-width: 1024px) {
   .articles {
     .articles-details {
+      border: 1px solid black;
+
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-gap: 3rem;
+      column-gap: 3rem;
     }
   }
 }

@@ -50,6 +50,22 @@ img {
   margin: auto;
 }
 
+.flex {
+  display: flex;
+
+  &-j-space-btw {
+    justify-content: space-between;
+  }
+
+  &-j-center {
+    justify-content: center;
+  }
+
+  &-ali-center {
+    align-items: center;
+  }
+}
+
 @media screen and (min-width: 768px) {
   body {
     font-size: $font-size-small;
