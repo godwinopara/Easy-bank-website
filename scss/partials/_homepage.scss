@@ -192,22 +192,6 @@ header {
         }
       }
     }
-
-    // media query breakpoint 1024px for the
-    // REASON TO CHOOSE US SECTION
-
-    // @include breakpoint-up(medium) {
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: space-between;
-
-    //   .reasons-to-choose-us-card {
-    //     flex: 1;
-    //   }
-    //   .reasons-to-choose-us-card + .reasons-to-choose-us-card {
-    //     margin-left: 3rem;
-    //   }
-    // }
   }
 }
 
@@ -315,10 +299,5 @@ header {
       background-size: cover;
       background-position: center;
     }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .articles {
   }
 }
