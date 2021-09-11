@@ -7,6 +7,7 @@ $font-size-semi-normal: 2.4rem;
 $font-size-medium: 1.8rem;
 $font-size-semi-medium: 1.6rem;
 $font-size-small: 1.5rem;
+$font-size-mini: 1.4rem;
 $font-size-very-small: 1.3rem;
 $font-size-extra-small: 1rem;
 $font-family: "Public Sans", sans-serif;
@@ -60,6 +61,7 @@ $White: hsl(0, 0%, 100%);
 // breakpoint media query
 
 $breakpoints-up: (
+  small: "768px",
   medium: "1024px",
   large: "1400px",
 );

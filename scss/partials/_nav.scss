@@ -1,6 +1,6 @@
 .nav-wrapper {
   background-color: $White;
-  z-index: 100;
+  z-index: 10;
   position: relative;
 }
 
@@ -13,12 +13,48 @@ nav {
   .nav-links {
     display: none;
 
+    @include breakpoint-up(medium) {
+      display: flex;
+      justify-content: center;
+    }
+
     li {
       cursor: pointer;
+      font-size: $font-size-medium;
+
+      @include breakpoint-up(medium) {
+        font-size: $font-size-mini;
+        position: relative;
+        &:not(:last-child) {
+          margin-right: 3rem;
+        }
+
+        &::before {
+          content: "";
+          height: 4px;
+          width: 100%;
+          display: block;
+          position: absolute;
+          top: 190%;
+          visibility: hidden;
+          background: linear-gradient(135deg, #33d35e 0%, #2ab6d9 99.58%);
+        }
+        &:hover {
+          color: $Dark-Blue;
+        }
+        &:hover::before {
+          visibility: visible;
+          transition: 1s ease-in-out;
+        }
+      }
     }
   }
   button {
     display: none;
+
+    @include breakpoint-up(medium) {
+      display: block;
+    }
   }
 
   .hamburger {
@@ -26,26 +62,31 @@ nav {
     img:nth-child(2) {
       display: none;
     }
-  }
-}
 
-@media screen and (min-width: 1024px) {
-  nav {
-    .nav-links {
-      display: flex;
-      justify-content: center;
-
-      li + li {
-        margin-left: 2rem;
-      }
-    }
-
-    button {
-      display: block;
-    }
-
-    .hamburger {
+    @include breakpoint-up(medium) {
       display: none;
+    }
+  }
+
+  // show mobile nav
+  .open-nav-links {
+    display: block;
+    width: 90%;
+    min-height: 26.5rem;
+    background: $White;
+    position: fixed;
+    top: 8.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3.2rem 0;
+
+    li {
+      color: $Dark-Blue;
+    }
+    li:not(:last-child) {
+      margin-bottom: 2.4rem;
     }
   }
 }

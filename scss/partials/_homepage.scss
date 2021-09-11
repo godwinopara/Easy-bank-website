@@ -1,8 +1,6 @@
 // HEADER
 
 header {
-  // position: relative;
-
   .header-hero {
     min-height: 69rem;
 
@@ -14,18 +12,45 @@ header {
     }
   }
 
+  // HEADER HERO IMAGE
   .hero-image {
     position: relative;
     height: 32rem;
-    background: url("../../images/bg-intro-mobile.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
 
+    @include breakpoint-up(medium) {
+      height: 65.6rem;
+      flex: 3;
+    }
+
+    // HERO BACKGROUND DESIGN IMAGE
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5%;
+      left: -10%;
+      background: url("../../images/bg-intro-mobile.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100%;
+      width: 115%;
+
+      // media query breakpoint 1024px for the hero-image
+      @include breakpoint-up(medium) {
+        top: -15%;
+        background: url("../../images/bg-intro-desktop.svg");
+        background-size: 120%;
+        background-position: 8% 70%;
+        height: 100%;
+        width: 130%;
+      }
+    }
+
+    // HERO PHONE BACKGROUND IMAGE
     &::after {
       content: "";
       position: absolute;
-      top: -45%;
+      top: -40%;
       left: 0;
       background: url("../../images/image-mockups.png");
       background-size: contain;
@@ -33,25 +58,8 @@ header {
       background-position: center center;
       height: 160%;
       width: 100%;
-    }
 
-    @include breakpoint-up(medium) {
-      background-image: none;
-      height: 65.6rem;
-      flex: 3;
-      &::before {
-        content: "";
-        position: absolute;
-        top: -15%;
-        background: url("../../images/bg-intro-desktop.svg");
-        background-size: 130%;
-        background-repeat: no-repeat;
-        background-position: 8% 70%;
-        height: 120%;
-        width: 130%;
-      }
-
-      &::after {
+      @include breakpoint-up(medium) {
         left: 20%;
         top: -27%;
         background-size: 105%;
@@ -60,12 +68,23 @@ header {
     }
   }
 
+  /* **************************** */
+  // HEADER TEXT
+
   .header-description {
     margin-top: 3.1rem;
+
+    @include breakpoint-up(medium) {
+      flex: 2;
+    }
 
     .content {
       padding-bottom: 5rem;
       text-align: center;
+
+      @include breakpoint-up(medium) {
+        text-align: left;
+      }
 
       h1 {
         @include font-large;
@@ -76,19 +95,15 @@ header {
       }
     }
 
-    @include breakpoint-up(medium) {
-      flex: 2;
+    // MEDIA QUERY BREAKPOINT 1400PX FOR THE HEADER TEX
+    // HEADING AND PARAGRAPH
+    @include breakpoint-up(large) {
+      h1 {
+        @include font-very-large;
+      }
 
-      .content {
-        text-align: left;
-
-        h1 {
-          @include font-very-large;
-        }
-
-        p {
-          @include font-medium($font-size-medium);
-        }
+      p {
+        @include font-medium($font-size-medium);
       }
     }
   }
@@ -109,24 +124,29 @@ header {
     text-align: center;
     width: 85%;
 
+    @include breakpoint-up(small) {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     h2 {
       @include font-normal;
       margin-bottom: 1.6rem;
+
+      // MEDIA QUERY BREAKPOINT 768PX FOR THE H2
+
+      @include breakpoint-up(small) {
+        @include font-large;
+      }
     }
 
     // media query breakpoint 1024px upward style for
     // the  WHY CHOOSE US HEADING
 
-    @include breakpoint-up(medium) {
-      text-align: left;
-      margin-left: 0;
-
-      h2 {
-        @include font-large;
-      }
-
-      p {
-        max-width: 70%;
+    p {
+      @include breakpoint-up(small) {
+        max-width: 75%;
         margin: auto 0;
         @include font-medium($font-size-medium);
       }
@@ -134,6 +154,10 @@ header {
 
     //
   }
+
+  /* ************************************************
+  *************************************************
+ */
 
   .reasons-to-choose-us {
     text-align: center;
@@ -144,27 +168,46 @@ header {
       margin: 2.4rem auto 1.6rem;
     }
 
+    @include breakpoint-up(small) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 5rem;
+      width: 100%;
+      text-align: left;
+    }
+
+    @include breakpoint-up(medium) {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 2.5rem;
+    }
+
     .reasons-to-choose-us-card {
       margin-bottom: 3.2rem;
+
+      @include breakpoint-up(medium) {
+        flex: 1;
+
+        .reasons-to-choose-us-card:not(:last-child) {
+          margin-left: 3rem;
+        }
+      }
     }
 
     // media query breakpoint 1024px for the
     // REASON TO CHOOSE US SECTION
 
-    @include breakpoint-up(medium) {
-      width: 100%;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    // @include breakpoint-up(medium) {
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: space-between;
 
-      .reasons-to-choose-us-card {
-        flex: 1;
-      }
-      .reasons-to-choose-us-card + .reasons-to-choose-us-card {
-        margin-left: 2rem;
-      }
-    }
+    //   .reasons-to-choose-us-card {
+    //     flex: 1;
+    //   }
+    //   .reasons-to-choose-us-card + .reasons-to-choose-us-card {
+    //     margin-left: 3rem;
+    //   }
+    // }
   }
 }
 
@@ -177,12 +220,26 @@ header {
     text-align: center;
     margin-bottom: 3.1rem;
     @include font-normal;
+
+    // media query breakpoint 1024px
+    @include breakpoint-up(medium) {
+      @include font-large;
+      text-align: left;
+    }
   }
 
   .articles-details {
-    @include breakpoint-up(medium) {
+    // media query breakpoint 768px upward(min-width:768px)
+    @include breakpoint-up(small) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+    }
+
+    // media query breakpoint 1024px upward (min-width:1024px)
+    @include breakpoint-up(medium) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       column-gap: 3rem;
     }
   }
@@ -191,6 +248,8 @@ header {
     margin-bottom: 2.4rem;
     background: $White;
     border-radius: 0 0 5px 5px;
+
+    // media query breakpoint 1024px upward(min-width:1024px)
 
     @include breakpoint-up(medium) {
       margin-bottom: 0;
@@ -255,21 +314,5 @@ header {
 
 @media screen and (min-width: 768px) {
   .articles {
-    h2 {
-      @include font-large;
-      text-align: left;
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .articles {
-    .articles-details {
-      border: 1px solid black;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 3rem;
-    }
   }
 }
