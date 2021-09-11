@@ -44,6 +44,10 @@ header {
         height: 100%;
         width: 130%;
       }
+
+      @include breakpoint-up(large) {
+        width: 150%;
+      }
     }
 
     // HERO PHONE BACKGROUND IMAGE
@@ -60,10 +64,14 @@ header {
       width: 100%;
 
       @include breakpoint-up(medium) {
-        left: 20%;
+        left: 15%;
         top: -27%;
         background-size: 105%;
         width: 110%;
+      }
+
+      @include breakpoint-up(large) {
+        left: 30%;
       }
     }
   }
