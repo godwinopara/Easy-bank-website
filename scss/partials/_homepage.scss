@@ -254,6 +254,7 @@ header {
     @include breakpoint-up(medium) {
       margin-bottom: 0;
     }
+    // ***************************
 
     .card-details {
       padding: 2.4rem;
@@ -266,6 +267,11 @@ header {
       h4 {
         @include font-small;
         margin: 1rem 0;
+        cursor: pointer;
+
+        &:hover {
+          color: $Lime-Green;
+        }
       }
 
       p {
